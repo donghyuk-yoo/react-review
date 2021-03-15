@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 // 함수 파라미터 부분에서 비구조화 할당(구조 분해)
-const MyComponent = ({ name, favoriteNumber, children }) => {
-  return (
-    <>
+
+class MyComponent extends Component {
+  render() {
+    const { name, favoriteNumber, children } = this.props; // 비구조화 할당
+    return (
       <div>
         props값은 {name} <br />
         children값은 {children}
@@ -12,12 +14,12 @@ const MyComponent = ({ name, favoriteNumber, children }) => {
         <br />
         제가 좋아하는 숫자는 {favoriteNumber}입니다.
       </div>
-    </>
-  );
-};
+    );
+  }
+}
 
 MyComponent.defaultProps = {
-  data2: "props 기본값",
+  name: "기본 이름",
 };
 
 MyComponent.propTypes = {
