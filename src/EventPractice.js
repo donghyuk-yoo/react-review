@@ -1,38 +1,53 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class EventPractice extends Component {
-  state = {
+const EventPractice = () => {
+  // const [username, setUserName] = useState("");
+  // const [message, setMessage] = useState("");
+  const [form, setForm] = useState({
     username: "",
     message: "",
-  };
+  });
+  const { username, message } = form;
 
-  handleChange = (e) => {
-    this.setState({
+  // const onChangeUserName = (e) => setUserName(e.target.value);
+  // const onChangeMessage = (e) => setMessage(e.target.value);
+  const onChange = (e) => {
+    console.log(e.target.name);
+    const newForm = {
+      // onChange에서 하나의 form state를 다루지만, form의 상태인 객체 내용이 2개 이상일 때, input도 같은 개수이다.
+      // input이 2개 이상이라 내용을 각각 받으므로 매 이벤트마다 setter함수만 사용시 마지막 input때 한 개 이상의 값이 undefined가 된다.
+      // 여기서는 후에 입력받은 {username: undefined message: 입력받은 값}이
+      // 전에 입력받은 {username: 입력받은 값 message: undefined}를 덮어쓰며
+      // username값이 결국 undefined로 저장된다.
+      // 스프레드 연산자로 기존 form 내용을 이 자리에 복사한 뒤
+      ...form,
+      // 새로운 값(변경된 값)을 덮어씌운다.
       [e.target.name]: e.target.value,
+    };
+    console.log(e.target.value);
+    console.log(newForm);
+    setForm(newForm);
+  };
+  const onClick = () => {
+    alert(username + " : " + message);
+    setForm({
+      username: "",
+      message: "",
     });
   };
-
-  handleClick = (e) => {
-    alert(this.state.username + ":" + this.state.message);
-    this.setState({ username: "", message: "" });
-  };
-
-  handleKeyPress = (e) => {
+  const onKeyPress = (e) => {
     if (e.key === "Enter") {
-      this.handleClick();
+      onClick();
     }
   };
 
-  render() {
-    return (
-      <>
-        <h1>이벤트 연습</h1>
-        <input type="text" name="username" placeholder="사용자명" value={this.state.username} onChange={this.handleChange} />
-        <input type="text" name="message" placeholder="아무거나 입력" value={this.state.message} onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
-        <button onClick={this.handleClick}>확인</button>
-      </>
-    );
-  }
-}
+  return (
+    <div>
+      <input type="text" name="username" placeholder="사용자 이름" value={username} onChange={onChange} />
+      <input type="text" name="message" placeholder="메세지" value={message} onChange={onChange} onKeyPress={onKeyPress} />
+      <button onClick={onClick}>확인</button>
+    </div>
+  );
+};
 
 export default EventPractice;
