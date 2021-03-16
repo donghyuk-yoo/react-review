@@ -33,6 +33,7 @@ function App() {
           {/* 인라인 스타일링 */}
           <span style={{ color: "red" }}>리액트</span>
         </MyComponent>
+        {/* 값이 undefined일 때 보여줄 문자열 */}
         <div>{noting || "undefined"}</div>
       </section>
 

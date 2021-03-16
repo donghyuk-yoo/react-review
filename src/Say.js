@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Say = () => {
   // 클래스형 state의 초깃값과 달리 반드시 객체가 아니어도 된다. 값의 형태는 자유
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("state 기본값");
   // useState()는 한 컴포넌트에서 여러번 사용 가능
   const [color, setColor] = useState("");
 
