@@ -4,6 +4,7 @@ import EventPractice from "./EventPractice";
 import MyComponent from "./MyComponent";
 import Say from "./Say";
 import "./App.css";
+import ValidationSample from "./ValidationSample";
 
 function App() {
   const name = "React";
@@ -50,6 +51,11 @@ function App() {
       <section className="section setion__event2">
         <h1 className="summary">event2</h1>
         <EventPractice />
+      </section>
+
+      <section className="section section__ref">
+        <h1 className="summary">ref</h1>
+        <ValidationSample />
       </section>
     </>
   );
