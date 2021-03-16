@@ -1,6 +1,7 @@
 import React from "react";
 import Counter from "./Counter";
 import MyComponent from "./MyComponent";
+import Say from "./Say";
 
 function App() {
   const name = "React";
@@ -19,6 +20,7 @@ function App() {
       </MyComponent>
       <div>{noting || "undefined"}</div>
       <Counter />
+      <Say />
     </>
   );
 }
