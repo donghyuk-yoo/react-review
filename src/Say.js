@@ -15,6 +15,11 @@ const Say = () => {
 
   return (
     <>
+      {/*
+        이벤트 이름은 카멜 표기법으로 작성 
+        이벤트에 실행할 자바스크립트 코드가 아닌 함수 형태의 값을 전달
+        DOM 요소에만 이벤트 설정 가능
+      */}
       <button onClick={onClickEnter}>입장</button>
       <button onClick={onClickClose}>퇴장</button>
       <h1 style={{ color }}>{message}</h1>
