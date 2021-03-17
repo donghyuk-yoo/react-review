@@ -23,6 +23,7 @@
 .section .summary {
   background: grey;
   height: 3rem;
+  line-height: 3rem;
   text-align: center;
   color: #fff;
 }

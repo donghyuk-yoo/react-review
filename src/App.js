@@ -5,6 +5,8 @@ import MyComponent from "./MyComponent";
 import Say from "./Say";
 import "./App.css";
 import ValidationSample from "./ValidationSample";
+import ScrollBox from "./ScrollBox";
+import IterationSample from "./IterationSample";
 
 class App extends Component {
   render() {
@@ -21,8 +23,8 @@ class App extends Component {
 
     return (
       <>
-        <h1 className="title">React</h1>
-        <h1 className="sub-title">review</h1>
+        <h1 className="title">review</h1>
+        <h1 className="sub-title">React</h1>
 
         <section className="section">
           <h1 className="summary">props</h1>
@@ -55,8 +57,19 @@ class App extends Component {
         </section>
 
         <section className="section section__ref">
-          <h1 className="summary">ref</h1>
+          <h1 className="summary">ref1</h1>
           <ValidationSample />
+        </section>
+
+        <section className="section section__ref2">
+          <h1 className="summary">ref2</h1>
+          <ScrollBox ref={(ref) => (this.scrollBox = ref)} />
+          <button onClick={() => this.scrollBox.scrollToBottom()}>맨 밑으로</button>
+        </section>
+
+        <section className="section section__component">
+          <h1 className="summary">컴포넌트 반복 map</h1>
+          <IterationSample />
         </section>
       </>
     );
