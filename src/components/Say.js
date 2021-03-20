@@ -15,6 +15,7 @@ const Say = () => {
 
   return (
     <>
+      <h1 className="summary">event1</h1>
       {/*
         이벤트 이름은 카멜 표기법으로 작성 
         이벤트에 실행할 자바스크립트 코드가 아닌 함수 형태의 값을 전달

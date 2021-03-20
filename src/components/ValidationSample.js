@@ -25,6 +25,7 @@ class ValidationSample extends Component {
   render() {
     return (
       <div>
+        <h1 className="summary">ref1</h1>
         <div>0000이면 success</div>
         {/* 리액트에서 DOM 접근없이 state로 input 검증, vanilla-js와 jQuery에서는 DOM에 접근해야 한다. */}
         {/* 검증버튼 클릭시 focus가 input에 남아있지 않는다. ref로 DOM에 접근해 focus를 다시 돌려주는 작업, 콜백함수 방식 */}

@@ -45,6 +45,7 @@ const EventPractice = () => {
 
   return (
     <div>
+      <h1 className="summary">event2</h1>
       {/* 비구조화 없이 객체값 참조 또는 비구조화 할당으로 참조 */}
       <input type="text" name="username" placeholder="사용자 이름" value={form.username} onChange={onChange} />
       <input type="text" name="message" placeholder="메세지" value={message} onChange={onChange} onKeyPress={onKeyPress} />
