@@ -26,15 +26,17 @@ class ScrollBox extends Component {
 
     return (
       <>
-        <h1 className="summary">ref2</h1>
-        <div
-          style={style}
-          ref={(ref) => {
-            this.box = ref;
-          }}
-        >
-          <div style={innerStyle} />
-        </div>
+        <section className="section section__ref2">
+          <h1 className="summary">ref2</h1>
+          <div
+            style={style}
+            ref={(ref) => {
+              this.box = ref;
+            }}
+          >
+            <div style={innerStyle} />
+          </div>
+        </section>
       </>
     );
   }

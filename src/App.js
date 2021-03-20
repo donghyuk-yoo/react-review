@@ -7,6 +7,7 @@ import "./App.css";
 import ValidationSample from "./components/ValidationSample";
 import ScrollBox from "./components/ScrollBox";
 import IterationSample from "./components/IterationSample";
+import Navigation from "./components/Navigation";
 
 class App extends Component {
   render() {
@@ -18,48 +19,24 @@ class App extends Component {
 
     return (
       <>
-        <h1 className="title">review</h1>
-        <h1 className="sub-title">React</h1>
-
-        <div className="navigation">
-          <button>props</button>
-          <button>state</button>
-          <button>evnet1</button>
-          <button>evnet2</button>
-          <button>ref1</button>
-          <button>ref2</button>
-          <button>map</button>
-        </div>
-
-        <section className="section">
-          {/* 부모 컴포넌트인 App컴포넌트에서 자식 컴포넌트인 MyComponent에게 props전달 */}
-          <MyComponent name={"React"} favoriteNumber={23} />
-        </section>
-
-        <section className="section section__state">
-          <Counter />
-        </section>
-
-        <section className="section section__event1">
-          <Say />
-        </section>
-
-        <section className="section section__event2">
-          <EventPractice />
-        </section>
-
-        <section className="section section__ref">
-          <ValidationSample />
-        </section>
-
-        <section className="section section__ref2">
-          <ScrollBox ref={(ref) => (this.scrollBox = ref)} />
+        <Navigation />
+        {/* props 부모 컴포넌트인 App컴포넌트에서 자식 컴포넌트인 MyComponent에게 props전달 */}
+        <MyComponent name={"React"} favoriteNumber={23} />
+        {/* state */}
+        <Counter />
+        {/* event1 */}
+        <Say />
+        {/* event2 */}
+        <EventPractice />
+        {/* ref1 */}
+        <ValidationSample />
+        {/* ref2 컴포넌트에 ref달고 내부 메서드 사용 */}
+        <ScrollBox ref={(ref) => (this.scrollBox = ref)} />
+        <div style={{ borderBottom: "0.1rem solid #000", paddingLeft: "1rem" }}>
           <button onClick={() => this.scrollBox.scrollToBottom()}>맨 밑으로</button>
-        </section>
-
-        <section className="section section__component">
-          <IterationSample />
-        </section>
+        </div>
+        {/* map, concat, filter, Spread Operator(...object) */}
+        <IterationSample />
       </>
     );
   }

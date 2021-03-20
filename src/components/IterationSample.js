@@ -60,10 +60,13 @@ const IterationSample = () => {
 
   return (
     <>
-      <h1 className="summary">컴포넌트 반복 map</h1>
-      <input value={inputText} onChange={onChange} />
-      <button onClick={onClick}>추가</button>
-      <ul>{nameList}</ul>
+      <section className="section section__component">
+        <h1 className="summary">컴포넌트 반복</h1>
+        <h1>map, concat, filter, Spread Operator(...object)</h1>
+        <input value={inputText} onChange={onChange} />
+        <button onClick={onClick}>추가</button>
+        <ul>{nameList}</ul>
+      </section>
     </>
   );
 };
