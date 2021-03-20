@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ValidationSample.css";
+import "../style/ValidationSample.css";
 
 class ValidationSample extends Component {
   state = {

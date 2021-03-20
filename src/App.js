@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Counter from "./Counter";
-import EventPractice from "./EventPractice";
-import MyComponent from "./MyComponent";
-import Say from "./Say";
+import Counter from "./components/Counter";
+import EventPractice from "./components/EventPractice";
+import MyComponent from "./components/MyComponent";
+import Say from "./components/Say";
 import "./App.css";
-import ValidationSample from "./ValidationSample";
-import ScrollBox from "./ScrollBox";
-import IterationSample from "./IterationSample";
+import ValidationSample from "./components/ValidationSample";
+import ScrollBox from "./components/ScrollBox";
+import IterationSample from "./components/IterationSample";
 
 class App extends Component {
   render() {
@@ -26,6 +26,16 @@ class App extends Component {
         <h1 className="title">review</h1>
         <h1 className="sub-title">React</h1>
 
+        <div className="navigation">
+          <button>props</button>
+          <button>state</button>
+          <button>evnet1</button>
+          <button>evnet2</button>
+          <button>ref1</button>
+          <button>ref2</button>
+          <button>map</button>
+        </div>
+
         <section className="section">
           <h1 className="summary">props</h1>
           {/* 부모 컴포넌트인 App컴포넌트에서 자식 컴포넌트인 MyComponent에게 props전달 */}
@@ -41,7 +51,7 @@ class App extends Component {
           <div>{noting || "undefined"}</div>
         </section>
 
-        <section className="section setion__state">
+        <section className="section section__state">
           <h1 className="summary">state</h1>
           <Counter />
         </section>
