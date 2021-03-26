@@ -17,13 +17,14 @@ function CounterReducer() {
 
   return (
     <>
-      <div>
+      <section className="section section__CounterReducer">
+        <h1 className="summary">useReducer</h1>
         <p>
           현재 카운터 값은 <b>{state.value}</b> 입니다.
         </p>
         <button onClick={() => dispatch({ type: "INCREMENT" })}>+</button>
         <button onClick={() => dispatch({ type: "DECREMENT" })}>-</button>
-      </div>
+      </section>
     </>
   );
 }

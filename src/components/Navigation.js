@@ -8,6 +8,7 @@ import IterationSample from "./IterationSample";
 import ScrollBox2 from "./ScrollBox2";
 import Info from "./Info";
 import CounterReducer from "./CounterReducer";
+import InfoReducer from "./InfoReducer";
 
 function Navigation() {
   const [props, setProps] = useState(false);
@@ -75,6 +76,7 @@ function Navigation() {
       {component && <IterationSample />}
       {useEffect && <Info />}
       {useReducer && <CounterReducer />}
+      {useReducer && <InfoReducer />}
     </>
   );
 }
