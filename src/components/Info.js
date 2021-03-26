@@ -25,28 +25,24 @@ function Info() {
   // 뒷정리하기, 컴포넌트 언마운트되기 전이나 업데이트되기 직전에 수행
   useEffect(() => {
     // 마운트될 때
-    // console.log("컴포넌트 마운트");
-    // console.log(
-    //   name,
-    // );
-    // 언마운트될 때
-    return () => {
-      // console.log("컴포넌트 언마운트");
-      // console.log(
-      //   name,
-      // );
-    };
-  });
-
-  // 뒷정리하기, 오직 언마운트될 때만 뒷정리 함수 호출
-  useEffect(() => {
     console.log("컴포넌트 마운트");
     console.log(name);
+    // 언마운트될 때
     return () => {
       console.log("컴포넌트 언마운트");
       console.log(name);
     };
-  }, []);
+  });
+
+  // 뒷정리하기, 오직 언마운트될 때만 뒷정리 함수 호출
+  // useEffect(() => {
+  //   console.log("컴포넌트 마운트");
+  //   console.log(name);
+  //   return () => {
+  //     console.log("컴포넌트 언마운트");
+  //     console.log(name);
+  //   };
+  // }, []);
 
   const onChangeName = (e) => {
     setName(e.target.value);

@@ -7,6 +7,7 @@ import ValidationSample from "./ValidationSample";
 import IterationSample from "./IterationSample";
 import ScrollBox2 from "./ScrollBox2";
 import Info from "./Info";
+import CounterReducer from "./CounterReducer";
 
 function Navigation() {
   const [props, setProps] = useState(false);
@@ -17,6 +18,7 @@ function Navigation() {
   const [ref2, setref2] = useState(false);
   const [component, setcomponent] = useState(false);
   const [useEffect, setUseEffect] = useState(false);
+  const [useReducer, setUseReducer] = useState(false);
 
   const ChangeColor = (p) => {
     if (p === true) {
@@ -58,6 +60,9 @@ function Navigation() {
         <button onClick={() => setUseEffect(!useEffect)} style={ChangeColor(useEffect)}>
           useEffect
         </button>
+        <button onClick={() => setUseReducer(!useReducer)} style={ChangeColor(useReducer)}>
+          useReducer
+        </button>
       </div>
 
       {/* props 부모 컴포넌트인 App컴포넌트에서 자식 컴포넌트인 MyComponent에게 props전달 */}
@@ -69,6 +74,7 @@ function Navigation() {
       {ref2 && <ScrollBox2 />}
       {component && <IterationSample />}
       {useEffect && <Info />}
+      {useReducer && <CounterReducer />}
     </>
   );
 }
