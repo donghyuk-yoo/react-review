@@ -9,6 +9,7 @@ import ScrollBox2 from "./ScrollBox2";
 import Info from "./Info";
 import CounterReducer from "./CounterReducer";
 import InfoReducer from "./InfoReducer";
+import Average from "./Average";
 
 function Navigation() {
   const [props, setProps] = useState(false);
@@ -20,6 +21,7 @@ function Navigation() {
   const [component, setcomponent] = useState(false);
   const [useEffect, setUseEffect] = useState(false);
   const [useReducer, setUseReducer] = useState(false);
+  const [useMemo, setUseMemo] = useState(false);
 
   const ChangeColor = (p) => {
     if (p === true) {
@@ -64,6 +66,9 @@ function Navigation() {
         <button onClick={() => setUseReducer(!useReducer)} style={ChangeColor(useReducer)}>
           useReducer
         </button>
+        <button onClick={() => setUseMemo(!useMemo)} style={ChangeColor(useMemo)}>
+          useMemo
+        </button>
       </div>
 
       {/* props 부모 컴포넌트인 App컴포넌트에서 자식 컴포넌트인 MyComponent에게 props전달 */}
@@ -77,6 +82,7 @@ function Navigation() {
       {useEffect && <Info />}
       {useReducer && <CounterReducer />}
       {useReducer && <InfoReducer />}
+      {useMemo && <Average />}
     </>
   );
 }
