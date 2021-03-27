@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useRef } from "react";
 
 const getAverage = (numbers) => {
   console.log("평균값 계산 중..");
@@ -6,24 +6,32 @@ const getAverage = (numbers) => {
   const sum = numbers.reduce((a, b) => a + b);
   return sum / numbers.length;
 };
+
 const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
+
+  // useRef를 통해 만든 객체
+  const inputEl = useRef(null);
 
   // useCallback, 빈배열: 컴포넌트가 렌더링될 때 만들었던 함수 계속 재사용(렌더링때마다 새로운 함수 생성으로 인한 렌더링 성능 저하 방지)
   const onChange = useCallback((e) => {
     setNumber(e.target.value);
   }, []);
+
   // useCallback, 배열안 값에 따라 인풋 내용이 바뀌거나 새로운 항목이 추가될 때 새로 만들어진 함수 사용
   const onInsert = useCallback(
     (e) => {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
       setNumber("");
+      // useRef를 통해 만든 객체 안의 current값이 가리키는 엘리먼트에 접근
+      inputEl.current.focus();
     },
     // number나 list가 바뀌없을 때만 함수 생성
     [number, list]
   );
+
   // useMemo, 특정값이 바뀔 때만 연산실행
   const avg = useMemo(() => getAverage(list), [list]);
 
@@ -33,7 +41,8 @@ const Average = () => {
         <h1 className="summary">useMemo</h1>
         <div>
           {/* 등록할 때만 getAverage함수가 호출되어야하나 input 내용이 수정될 때마다 함수가 호출된다. */}
-          <input value={number} onChange={onChange} />
+          {/* useRef를 사용하여 ref설정: useRef를 통해 만든 객체 안의 current값이 가리킬 실제 엘리먼트 */}
+          <input value={number} onChange={onChange} ref={inputEl} />
           <button onClick={onInsert}>등록</button>
           <ul>
             {list.map((value, index) => (
