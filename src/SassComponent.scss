@@ -1,4 +1,5 @@
-@import "./styles/utils.scss";
+// saa-loader data필드 설정으로 utills.scss 자동으로 불러옴
+// @import "./utils.scss";
 .SassComponent {
   display: flex;
   .box {
