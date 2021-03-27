@@ -11,6 +11,7 @@ import CounterReducer from "./CounterReducer";
 import InfoReducer from "./InfoReducer";
 import Average from "./Average";
 import SassComponent from "../SassComponent";
+import CSSModule from "../components/CSSModule";
 
 function Navigation() {
   const [props, setProps] = useState(false);
@@ -24,6 +25,7 @@ function Navigation() {
   const [useReducer, setUseReducer] = useState(false);
   const [useMemo, setUseMemo] = useState(false);
   const [Sass, setSass] = useState(false);
+  const [cssModule, setcssModule] = useState(false);
 
   const ChangeColor = (p) => {
     if (p === true) {
@@ -74,6 +76,9 @@ function Navigation() {
         <button onClick={() => setSass(!Sass)} style={ChangeColor(Sass)}>
           Sass
         </button>
+        <button onClick={() => setcssModule(!cssModule)} style={ChangeColor(cssModule)}>
+          cssModule
+        </button>
       </div>
 
       {/* props 부모 컴포넌트인 App컴포넌트에서 자식 컴포넌트인 MyComponent에게 props전달 */}
@@ -89,6 +94,7 @@ function Navigation() {
       {useReducer && <InfoReducer />}
       {useMemo && <Average />}
       {Sass && <SassComponent />}
+      {cssModule && <CSSModule />}
     </>
   );
 }
