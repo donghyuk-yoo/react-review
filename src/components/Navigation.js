@@ -10,6 +10,7 @@ import Info from "./Info";
 import CounterReducer from "./CounterReducer";
 import InfoReducer from "./InfoReducer";
 import Average from "./Average";
+import SassComponent from "../SassComponent";
 
 function Navigation() {
   const [props, setProps] = useState(false);
@@ -22,6 +23,7 @@ function Navigation() {
   const [useEffect, setUseEffect] = useState(false);
   const [useReducer, setUseReducer] = useState(false);
   const [useMemo, setUseMemo] = useState(false);
+  const [Sass, setSass] = useState(false);
 
   const ChangeColor = (p) => {
     if (p === true) {
@@ -69,6 +71,9 @@ function Navigation() {
         <button onClick={() => setUseMemo(!useMemo)} style={ChangeColor(useMemo)}>
           useMemo
         </button>
+        <button onClick={() => setSass(!Sass)} style={ChangeColor(Sass)}>
+          Sass
+        </button>
       </div>
 
       {/* props 부모 컴포넌트인 App컴포넌트에서 자식 컴포넌트인 MyComponent에게 props전달 */}
@@ -83,6 +88,7 @@ function Navigation() {
       {useReducer && <CounterReducer />}
       {useReducer && <InfoReducer />}
       {useMemo && <Average />}
+      {Sass && <SassComponent />}
     </>
   );
 }
