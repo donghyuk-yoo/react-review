@@ -1,6 +1,20 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+// 미디어쿼리 작업 함수화
+const sizes = {
+  desktop: 1024,
+  tablet: 768,
+};
+const media = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${sizes[label] / 16}em) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
+
 const Box = styled.div`
   /*  props로 넣어 준 값을 직접 전달 가능 */
   background: ${(props) => props.color || "blue"};
@@ -10,12 +24,12 @@ const Box = styled.div`
   margin: 0 auto;
 
   /* styled-component에서 미디어 쿼리(반응형) */
-  @media (max-width: 1024px) {
-    width: 768px;
-  }
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     width: 100%;
-  }
+  } */
+
+  ${media.desktop`width: 768px;`}
+  ${media.tablet`width: 100%;`}
 `;
 
 const Button = styled.button`
