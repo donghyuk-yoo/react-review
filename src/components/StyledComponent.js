@@ -6,6 +6,16 @@ const Box = styled.div`
   background: ${(props) => props.color || "blue"};
   padding: 1rem;
   display: flex;
+  width: 1024px;
+  margin: 0 auto;
+
+  /* styled-component에서 미디어 쿼리(반응형) */
+  @media (max-width: 1024px) {
+    width: 768px;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Button = styled.button`
@@ -26,6 +36,8 @@ const Button = styled.button`
   }
 
   /* inverted값이 true일 때 스타일 부여 */
+  /* 단순 변수 형태가 아닌 여러 줄의 스타일 구문을 조건부로 설정해야 하는 경우 css불러옴 */
+  /* props를 사용해야 하는 경우(템플릿 리터럴 필수)에도 마찬가지 */
   ${(props) =>
     props.inverted &&
     css`

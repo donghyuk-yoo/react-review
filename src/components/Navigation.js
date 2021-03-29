@@ -60,18 +60,20 @@ function Navigation() {
     navState: false,
     navEvent1: false,
     event2: false,
+    ref1: false,
+    ref2: false,
   });
   // 비구조화로 간결하게, navState는 비구조화 없이 사용해봄.
-  const { navEvent1, event2 } = btnState;
+  const { navEvent1, event2, ref1, ref2 } = btnState;
 
-  // 아래 3 컴포넌트들은 useState에서 useReducer 관리로 변경됨
+  // 아래 컴포넌트들은 useState에서 useReducer 관리로 변경됨
   // const [NavState, setNavState] = useState(false);
   // const [event1, setevent1] = useState(false);
   // const [event2, setevent2] = useState(false);
+  // const [ref1, setref1] = useState(false);
+  // const [ref2, setref2] = useState(false);
 
   // useState로 컴포넌트 상태관리, 컴포넌트 개수만큼 선언
-  const [ref1, setref1] = useState(false);
-  const [ref2, setref2] = useState(false);
   const [component, setcomponent] = useState(false);
   const [navUseEffect, setNavUseEffect] = useState(false);
   const [NavReducer, setNavReducer] = useState(false);
@@ -103,10 +105,10 @@ function Navigation() {
         <button name="event2" value={event2} onClick={onClick} style={ChangeColor(event2)}>
           event2
         </button>
-        <button onClick={() => setref1(!ref1)} style={ChangeColor(ref1)}>
+        <button name="ref1" value={ref1} onClick={onClick} style={ChangeColor(ref1)}>
           ref1
         </button>
-        <button onClick={() => setref2(!ref2)} style={ChangeColor(ref2)}>
+        <button name="ref2" value={ref2} onClick={onClick} style={ChangeColor(ref2)}>
           ref2
         </button>
         <button onClick={() => setcomponent(!component)} style={ChangeColor(component)}>
