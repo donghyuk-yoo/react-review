@@ -71,10 +71,13 @@ const Button = styled.button`
 
 function StyledComponent() {
   return (
-    <Box color="black">
-      <Button>Hi</Button>
-      <Button inverted={true}>테두리만</Button>
-    </Box>
+    <section className="section section__StyledComponent">
+      <h1 className="summary">StyledComponent</h1>
+      <Box color="black">
+        <Button>Hi</Button>
+        <Button inverted={true}>테두리만</Button>
+      </Box>
+    </section>
   );
 }
 
